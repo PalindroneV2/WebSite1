@@ -10,10 +10,36 @@ Target Server Type    : MYSQL
 Target Server Version : 50736
 File Encoding         : 65001
 
-Date: 2022-03-04 14:05:31
+Date: 2022-03-07 11:25:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for bitacora
+-- ----------------------------
+DROP TABLE IF EXISTS `bitacora`;
+CREATE TABLE `bitacora` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_empleado` int(11) DEFAULT NULL,
+  `fecha_evento` datetime DEFAULT NULL,
+  `id_evento` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_empleado` (`id_empleado`),
+  KEY `id_evento` (`id_evento`),
+  CONSTRAINT `bitacora_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `cat_empleados` (`id`),
+  CONSTRAINT `bitacora_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `cat_eventos_sistema` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bitacora
+-- ----------------------------
+INSERT INTO `bitacora` VALUES ('1', '1', '2022-03-07 10:34:24', '1');
+INSERT INTO `bitacora` VALUES ('2', '1', '2022-03-07 10:42:02', '1');
+INSERT INTO `bitacora` VALUES ('3', '1', '2022-03-07 10:42:15', '2');
+INSERT INTO `bitacora` VALUES ('4', '1', '2022-03-07 10:43:52', '2');
+INSERT INTO `bitacora` VALUES ('5', '1', '2022-03-07 10:50:17', '1');
+INSERT INTO `bitacora` VALUES ('6', '1', '2022-03-07 10:50:19', '2');
 
 -- ----------------------------
 -- Table structure for cat_empleados
@@ -33,6 +59,22 @@ CREATE TABLE `cat_empleados` (
 -- ----------------------------
 INSERT INTO `cat_empleados` VALUES ('1', 'Román', 'Amavizca', 'Rigoberto', '1978-10-20');
 INSERT INTO `cat_empleados` VALUES ('2', 'Román', 'Ruiz', 'María Celeste', '2006-04-03');
+
+-- ----------------------------
+-- Table structure for cat_eventos_sistema
+-- ----------------------------
+DROP TABLE IF EXISTS `cat_eventos_sistema`;
+CREATE TABLE `cat_eventos_sistema` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cat_eventos_sistema
+-- ----------------------------
+INSERT INTO `cat_eventos_sistema` VALUES ('1', 'Entro a Sistema');
+INSERT INTO `cat_eventos_sistema` VALUES ('2', 'Salió del Sistema');
 
 -- ----------------------------
 -- Table structure for cat_usuarios

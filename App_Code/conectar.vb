@@ -10,4 +10,3 @@ Public Class conectar
         Return strConnString
     End Function
 End Class
-'Comentario nuevo 2
