@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50736
 File Encoding         : 65001
 
-Date: 2022-03-07 11:25:04
+Date: 2022-03-14 16:11:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `bitacora` (
   KEY `id_evento` (`id_evento`),
   CONSTRAINT `bitacora_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `cat_empleados` (`id`),
   CONSTRAINT `bitacora_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `cat_eventos_sistema` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bitacora
@@ -40,6 +40,30 @@ INSERT INTO `bitacora` VALUES ('3', '1', '2022-03-07 10:42:15', '2');
 INSERT INTO `bitacora` VALUES ('4', '1', '2022-03-07 10:43:52', '2');
 INSERT INTO `bitacora` VALUES ('5', '1', '2022-03-07 10:50:17', '1');
 INSERT INTO `bitacora` VALUES ('6', '1', '2022-03-07 10:50:19', '2');
+INSERT INTO `bitacora` VALUES ('7', '1', '2022-03-11 12:47:36', '1');
+INSERT INTO `bitacora` VALUES ('8', '1', '2022-03-11 12:47:51', '2');
+INSERT INTO `bitacora` VALUES ('9', '1', '2022-03-11 12:55:16', '1');
+INSERT INTO `bitacora` VALUES ('10', '1', '2022-03-11 12:56:06', '2');
+INSERT INTO `bitacora` VALUES ('11', '1', '2022-03-11 12:56:11', '1');
+INSERT INTO `bitacora` VALUES ('12', '1', '2022-03-11 13:00:30', '2');
+INSERT INTO `bitacora` VALUES ('13', '1', '2022-03-11 13:00:35', '1');
+INSERT INTO `bitacora` VALUES ('14', '1', '2022-03-11 13:14:33', '2');
+INSERT INTO `bitacora` VALUES ('15', '1', '2022-03-11 13:14:39', '1');
+INSERT INTO `bitacora` VALUES ('16', '1', '2022-03-11 13:15:23', '2');
+INSERT INTO `bitacora` VALUES ('17', '1', '2022-03-11 13:15:28', '1');
+INSERT INTO `bitacora` VALUES ('18', '1', '2022-03-11 13:17:32', '2');
+INSERT INTO `bitacora` VALUES ('19', '1', '2022-03-11 13:17:36', '1');
+INSERT INTO `bitacora` VALUES ('20', '1', '2022-03-11 13:19:14', '1');
+INSERT INTO `bitacora` VALUES ('21', '1', '2022-03-11 13:19:28', '2');
+INSERT INTO `bitacora` VALUES ('22', '1', '2022-03-11 13:19:31', '1');
+INSERT INTO `bitacora` VALUES ('23', '1', '2022-03-11 13:22:25', '2');
+INSERT INTO `bitacora` VALUES ('24', '1', '2022-03-11 13:22:32', '1');
+INSERT INTO `bitacora` VALUES ('25', '1', '2022-03-11 13:40:34', '2');
+INSERT INTO `bitacora` VALUES ('26', '1', '2022-03-11 13:40:39', '1');
+INSERT INTO `bitacora` VALUES ('27', '1', '2022-03-11 13:41:23', '2');
+INSERT INTO `bitacora` VALUES ('28', '1', '2022-03-11 13:41:28', '1');
+INSERT INTO `bitacora` VALUES ('29', '1', '2022-03-11 17:24:00', '2');
+INSERT INTO `bitacora` VALUES ('30', '1', '2022-03-14 09:08:54', '1');
 
 -- ----------------------------
 -- Table structure for cat_empleados
@@ -52,13 +76,14 @@ CREATE TABLE `cat_empleados` (
   `nombre` varchar(100) DEFAULT NULL,
   `fecha_nac` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cat_empleados
 -- ----------------------------
-INSERT INTO `cat_empleados` VALUES ('1', 'Román', 'Amavizca', 'Rigoberto', '1978-10-20');
-INSERT INTO `cat_empleados` VALUES ('2', 'Román', 'Ruiz', 'María Celeste', '2006-04-03');
+INSERT INTO `cat_empleados` VALUES ('1', 'ROMÁN', 'AMAVIZCA', 'RIGOBERTO', '1978-10-20');
+INSERT INTO `cat_empleados` VALUES ('2', 'ROMÁN', 'RUIZ', 'LUZ MARÍA', '2006-04-20');
+INSERT INTO `cat_empleados` VALUES ('3', 'RUIZ', 'FUENTES', 'MARTHA', '2012-02-08');
 
 -- ----------------------------
 -- Table structure for cat_eventos_sistema

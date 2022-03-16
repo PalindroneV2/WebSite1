@@ -13,6 +13,8 @@
         document.querySelector('#topFrame').src = "top.aspx?i=" + urlParams.get("id")
         document.querySelector('#leftFrame').src = "menu.aspx?i=" + urlParams.get("id")
         document.querySelector('#mainFrame').src = "main.aspx?i=" + urlParams.get("id")
+
+      
         }
     </script>
    
