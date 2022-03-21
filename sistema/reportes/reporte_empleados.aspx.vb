@@ -39,7 +39,9 @@ Partial Class sistema_reportes_reporte_empleados
                                      "apepat as 'Apellido Paterno', " &
                                      "apemat as 'Apellido Materno', " &
                                      "date_format(fecha_nac,'%d/%m/%Y') as 'Fecha de Nacimiento' " &
-                                     " from cat_empleados", c1)
+                                     " from cat_empleados " &
+                                     "where visible<>99 " &
+                               " ", c1)
         dr1 = cm1.ExecuteReader
         dg1.DataSource = dr1
         dg1.DataBind()
@@ -62,7 +64,9 @@ Partial Class sistema_reportes_reporte_empleados
                                        "apemat as 'apemat', " &
                                        "nombre as 'nombre', " &
                                        "date_format(fecha_nac,'%d/%m/%Y') as 'fecha_nac' " &
-                                       " from cat_empleados", c1)
+                                       " from cat_empleados " &
+                                       "where visible<>99 " &
+                               " ", c1)
         dr1 = cm1.ExecuteReader
 
         Dim a As String = ""

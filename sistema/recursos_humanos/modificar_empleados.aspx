@@ -57,6 +57,7 @@
                     <ItemTemplate>
                         <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument="MODIFICAR" ImageUrl="../../images/estandar/editar.png" CommandName="Edit" ToolTip="Modificar Registro" />
                         <asp:Label ID="id1" runat="server" Text='<%# Container.DataItem("id") %>' Visible="false"></asp:Label>
+                        <asp:Label ID="estatus1" runat="server" Text='<%# Container.DataItem("estatus") %>' Visible="false"></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateColumn>
 
@@ -119,6 +120,8 @@
             </tr>
             <tr>
                 <td colspan="2"><asp:Button ID="Button3" runat="server" CssClass="w3-btn w3-teal" style="font-family: verdana, Geneva, Tahoma, sans-serif; font-size: 10pt" Text="Modificar" />
+                &nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button4" runat="server" CssClass="w3-btn w3-red" style="font-family: verdana, Geneva, Tahoma, sans-serif; font-size: 10pt" Text="Eliminar" OnClientClick="return confirm(&quot;¿Esta seguro de eliminar el registro?&quot;);" />
+                    <asp:Button ID="Button5" runat="server" CssClass="w3-btn w3-green" style="font-family: verdana, Geneva, Tahoma, sans-serif; font-size: 10pt" Text="Reactivar" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button2" runat="server" CssClass="w3-btn w3-gray" style="font-family: verdana, Geneva, Tahoma, sans-serif; font-size: 10pt" Text="Cancelar" />
                 </td>
             </tr>

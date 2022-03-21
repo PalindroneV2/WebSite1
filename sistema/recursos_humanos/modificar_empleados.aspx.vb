@@ -41,14 +41,15 @@ Partial Class sistema_recursos_humanos_modificar_empleados
         End If
 
         cm1 = New MySqlCommand("select " &
-                                     "id as 'id', " &
-                                     "nombre as 'Nombre', " &
-                                     "apepat as 'Apellido Paterno', " &
-                                     "apemat as 'Apellido Materno', " &
-                                     "date_format(fecha_nac,'%d/%m/%Y') as 'Fecha de Nacimiento' " &
-                                     " from cat_empleados " &
-                                     " " & cadena1 & " " &
-                               " ", c1)
+                                "id as 'id', " &
+                                "nombre as 'Nombre', " &
+                                "apepat as 'Apellido Paterno', " &
+                                "apemat as 'Apellido Materno', " &
+                                "visible as 'estatus', " &
+                                "date_format(fecha_nac,'%d/%m/%Y') as 'Fecha de Nacimiento' " &
+                                " from cat_empleados " &
+                                " " & cadena1 & " " &
+                                " ", c1)
         dr1 = cm1.ExecuteReader
         dg1.DataSource = dr1
         dg1.DataBind()
@@ -67,7 +68,9 @@ Partial Class sistema_recursos_humanos_modificar_empleados
 
     Sub dg1_Update(ByVal sender As Object, ByVal e As DataGridCommandEventArgs) Handles dg1.EditCommand
         Dim aid As String = ""
+        Dim aestatus As String = ""
         aid = CType(e.Item.FindControl("id1"), Label).Text
+        aestatus = CType(e.Item.FindControl("estatus1"), Label).Text
 
         Dim aoperacion As String = e.CommandArgument.ToString
 
@@ -89,6 +92,17 @@ Partial Class sistema_recursos_humanos_modificar_empleados
             dr1.Close()
 
             c1.Close()
+
+
+            If aestatus = "1" Then
+                Button4.Visible = True
+                Button5.Visible = False
+                Button3.Visible = True
+            ElseIf aestatus = "99" Then
+                Button4.Visible = False
+                Button5.Visible = True
+                Button3.Visible = False
+            End If
 
 
         End If
@@ -150,5 +164,25 @@ Partial Class sistema_recursos_humanos_modificar_empleados
 
         End If
 
+    End Sub
+    Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        conexion()
+        cm1 = New MySqlCommand("update cat_empleados set visible=99 where id=?id", c1)
+        cm1.Parameters.AddWithValue("id", Label4.Text)
+        cm1.ExecuteNonQuery()
+        reporte_grid(TextBox1.Text)
+        tabla_modificar.Visible = False
+        mensaje.mostrar(Me, "Estimado usuario, el registro se ha eliminado correctamente")
+        c1.Close()
+    End Sub
+    Protected Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        conexion()
+        cm1 = New MySqlCommand("update cat_empleados set visible=1 where id=?id", c1)
+        cm1.Parameters.AddWithValue("id", Label4.Text)
+        cm1.ExecuteNonQuery()
+        reporte_grid(TextBox1.Text)
+        tabla_modificar.Visible = False
+        mensaje.mostrar(Me, "Estimado usuario, el registro se ha reactivado correctamente")
+        c1.Close()
     End Sub
 End Class

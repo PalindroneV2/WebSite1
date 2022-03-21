@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50736
 File Encoding         : 65001
 
-Date: 2022-03-14 16:11:47
+Date: 2022-03-18 12:10:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `bitacora` (
   KEY `id_evento` (`id_evento`),
   CONSTRAINT `bitacora_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `cat_empleados` (`id`),
   CONSTRAINT `bitacora_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `cat_eventos_sistema` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bitacora
@@ -64,6 +64,7 @@ INSERT INTO `bitacora` VALUES ('27', '1', '2022-03-11 13:41:23', '2');
 INSERT INTO `bitacora` VALUES ('28', '1', '2022-03-11 13:41:28', '1');
 INSERT INTO `bitacora` VALUES ('29', '1', '2022-03-11 17:24:00', '2');
 INSERT INTO `bitacora` VALUES ('30', '1', '2022-03-14 09:08:54', '1');
+INSERT INTO `bitacora` VALUES ('31', '1', '2022-03-16 13:34:10', '1');
 
 -- ----------------------------
 -- Table structure for cat_empleados
@@ -75,15 +76,16 @@ CREATE TABLE `cat_empleados` (
   `apemat` varchar(100) DEFAULT NULL,
   `nombre` varchar(100) DEFAULT NULL,
   `fecha_nac` date DEFAULT NULL,
+  `visible` int(2) DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cat_empleados
 -- ----------------------------
-INSERT INTO `cat_empleados` VALUES ('1', 'ROMÁN', 'AMAVIZCA', 'RIGOBERTO', '1978-10-20');
-INSERT INTO `cat_empleados` VALUES ('2', 'ROMÁN', 'RUIZ', 'LUZ MARÍA', '2006-04-20');
-INSERT INTO `cat_empleados` VALUES ('3', 'RUIZ', 'FUENTES', 'MARTHA', '2012-02-08');
+INSERT INTO `cat_empleados` VALUES ('1', 'ROMÁN', 'AMAVIZCA', 'RIGOBERTO', '1978-10-20', '1');
+INSERT INTO `cat_empleados` VALUES ('2', 'ROMÁN', 'RUIZ', 'LUZ MARÍA', '2006-04-20', '99');
+INSERT INTO `cat_empleados` VALUES ('3', 'RUIZ', 'MEYER', 'MARTHA', '2012-02-08', '1');
 
 -- ----------------------------
 -- Table structure for cat_eventos_sistema
